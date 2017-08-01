@@ -7,6 +7,9 @@ Airport.prototype.planes = function() {
   return this._hangar;
 };
 Airport.prototype.clearForLanding = function(plane) {
+  if(this.isStormy()) {
+    throw new Error('No clearance for landing during stormy weather');
+  }
   this._hangar.push(plane);
 };
 Airport.prototype.clearForTakeoff = function(plane) {

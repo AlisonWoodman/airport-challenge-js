@@ -24,4 +24,9 @@ describe('Feature Test:', function(){
     expect(function(){ plane.takeOff(airport);}).toThrowError('No clearance for takeoff during stormy weather');
     expect(airport.planes()).toContain(plane);
   });
+  it ('prevents landing when the weather is stormy', function() {
+    spyOn(airport, 'isStormy').and.returnValue(true);
+    expect(function() { plane.land(airport);}).toThrowError('No clearance for landing during stormy weather');
+    expect(airport.planes()).not.toContain(plane);
+  })
 });
