@@ -15,7 +15,7 @@ describe('Feature Test:', function(){
   });
   it('instructs a plane to take off', function() {
     plane.land(airport);
-    plane.takeOff();
+    plane.takeOff(airport);
     expect(airport.planes()).not.toContain(plane);
   });
 });

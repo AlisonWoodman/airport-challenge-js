@@ -12,7 +12,7 @@ describe('Plane', function(){
   });
   it('can take off from the airport', function() {
     plane.land(airport);
-    plane.takeOff();
+    plane.takeOff(airport);
     expect(airport.clearForTakeoff).toHaveBeenCalled();
   });
 });
